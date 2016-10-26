@@ -26,15 +26,13 @@ _start:
   ;/usr/include/i386-linux-gnu/bits/socket.h
   ;AF_INET = 2
   ;SOCK_STREAM = 1
-  ; /usr/include/netinet/in.h
-  ; INADDR_ANY = 0 => accepting connections from ANY host 
   ;socket(2,1,0)
 
   ; creating SOCKET
   xor eax,eax
   xor ebx,ebx
   xor ecx,ecx
-  push eax     ; push 0 on stack, stack now contains value 0 (INADDR_ANY)
+  push eax     ; push 0 on stack, stack now contains value 0
   mov al, 102  ; ax contains call number of socket
   mov bl, 1
   push ebx     ; push 1 on stack, stack now contains 0 and 1 (SOCK_STREAM)
@@ -48,10 +46,13 @@ _start:
   mov esi, eax ; store socket_file_descriptor in the esi register
 
 
+  ; /usr/include/netinet/in.h
+  ; INADDR_ANY = 0 => accepting connections from ANY host 
+
   ; opening SOCKET on port 4444
   xor ecx,ecx    ; ecx zeroing to ease the port number manipulating
   xor edx,edx    ; edx zeroing to be able to push 0 onto the stack
-  push edx       ; INADDR_ANY [*]
+  push edx       ; INADDR_ANY
   mov cx, 4444
   xchg ch,cl     ; because htons(port) reverses bytes
   push ecx
@@ -59,7 +60,7 @@ _start:
   mov al, 2      ; AF_INET
   push ax        ; ax, not eax because this is part of the structure and is 16-bits long
                  ; stack now has (INADDR_ANY, port_no, protocol_family)
-  mov ecx, esp ; save the pointer to the args in ecx registry
+  mov ecx, esp   ; save the pointer to the args in ecx registry
 
   ; calling bind() syscall
   ; in the file /usr/include/linux/net.h

