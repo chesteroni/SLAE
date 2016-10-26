@@ -7,12 +7,17 @@ All the solutions do have their dedicated blog posts on my [personal blog](https
 This task's goal is to create a bind shell that will open the TCP port and wait for incoming connection. When the client connects, they should receive an interactive shell.
 Shellcode generator should be easy configurable so changing the port should be no problem.
 
-Files;
+####Files:
 asm.sh - compiles the assembly code and links it
+
 dump.sh - echoes the shellcode in hex form so it may be put as a payload wherever you would like
+
 comp.sh - compiles the file "shellcode.c" into executable "shellcode". The purpose is to test the shellcode.
+
 go.sh - runs all the files above so you can give the nasm file and port as arguments and receive both bind shell and a binary
+
 bind.nasm - the assemply code of the bind shell. It is heavily documented so you should know what is where and why
+
 
 Example usage:
 ```
