@@ -18,6 +18,7 @@ go.sh - runs all the files above so you can give the nasm file and port as argum
 
 bind.nasm - the assemply code of the bind shell. It is heavily documented so you should know what is where and why
 
+reverse.py - simple script putting input string backwards, dividing in groups of 4 and printing ascii codes of such chunks' characters
 
 ####Example usage:
 Create the shellcode binaries (ld and gcc):

