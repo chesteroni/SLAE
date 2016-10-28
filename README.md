@@ -7,6 +7,8 @@ All the solutions do have their dedicated blog posts on my [personal blog](https
 This task's goal is to create a bind shell that will open the TCP port and wait for incoming connection. When the client connects, they should receive an interactive shell.
 Shellcode generator should be easy configurable so changing the port should be no problem.
 
+Detailed explanation may be found in the [blog post](https://chesteroni.blogspot.com/2016/10/slae-0x1-simple-tcp-bind-shell-for-linux.html)
+
 ####Files:
 asm.sh - compiles the assembly code and links it
 
